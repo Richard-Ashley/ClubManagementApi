@@ -1,6 +1,8 @@
 using System.Text;
 using ClubManagementApi.Data;
 using ClubManagementApi.Middleware;
+using ClubManagementApi.Services.Implementations;
+using ClubManagementApi.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -69,6 +71,9 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+// ── Services ──────────────────────────────────────────────────────────────────
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // ── Build ─────────────────────────────────────────────────────────────────────
 var app = builder.Build();
