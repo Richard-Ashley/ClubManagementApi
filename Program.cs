@@ -76,6 +76,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IVenueService, VenueService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 
 // ── Build ─────────────────────────────────────────────────────────────────────
 var app = builder.Build();
