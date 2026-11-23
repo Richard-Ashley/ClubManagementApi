@@ -15,8 +15,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ── Authentication ────────────────────────────────────────────────────────────
+const string jwtKeyPlaceholder = "set-via-user-secrets-or-environment-variable";
+
 var jwtKey = builder.Configuration["Jwt:Key"]
     ?? throw new InvalidOperationException("JWT key is not configured.");
+
+// Fail fast rather than sign tokens with the public placeholder or a weak key.
+if (jwtKey == jwtKeyPlaceholder || jwtKey.Length < 32)
+    throw new InvalidOperationException(
+        "JWT key is the placeholder or shorter than 32 characters. " +
+        "Set Jwt:Key via user secrets (dotnet user-secrets set \"Jwt:Key\" \"<key>\") " +
+        "or the Jwt__Key environment variable.");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

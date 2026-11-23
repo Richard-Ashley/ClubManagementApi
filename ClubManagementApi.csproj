@@ -5,6 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>ClubManagementApi</RootNamespace>
+		<UserSecretsId>06d88389-f3e3-44cc-8cc0-c6972c69d43c</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
