@@ -94,3 +94,7 @@ dotnet test
 
 - SQLite keeps setup to zero infrastructure; swap the provider in `Program.cs` for a server database in production.
 - Production: set `Jwt__Key` via environment variable or a secret store, and run outside Development so HTTPS redirection is on. Migrations are only auto-applied in Development.
+
+## Known limitations
+
+- The seeded admin account uses a fixed, publicly documented password. It exists so the auth flow can be tried immediately; for a real deployment, gate the seed to Development or generate a one-time password.
