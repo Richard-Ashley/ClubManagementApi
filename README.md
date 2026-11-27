@@ -1,5 +1,7 @@
 # ClubManagementApi
 
+[![CI](https://github.com/Richard-Ashley/ClubManagementApi/actions/workflows/ci.yml/badge.svg)](https://github.com/Richard-Ashley/ClubManagementApi/actions/workflows/ci.yml)
+
 A REST API for managing a sports/social club: members, venues, time slots and bookings. Built as a traditional layered ASP.NET Core 8 Web API (Controllers → Services → EF Core), with JWT authentication and role-based authorization.
 
 A Flutter client, ClubManagerApp, consumes this API.
